@@ -23,6 +23,8 @@ class Board
   end
 
   def place(player, coordinate)
+    
+  end
 
   def render
     
