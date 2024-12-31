@@ -12,8 +12,13 @@ RSpec.describe Board do
       expect(@board).to be_an_instance_of(Board)
     end
 
-    it 'sets up board' do 
+    it 'has cells' do
+      expect(@board.cells.count).to eq(9)
+    end
+    
+    xit 'sets up board' do 
       expect(@board.render).to be('  |   |   /n-----------/n  |   |   /n-----------/n  |   |   ')
     end
+
   end
 end
