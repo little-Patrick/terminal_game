@@ -7,7 +7,6 @@ RSpec.describe Board do
   end
 
   describe 'initialize' do
-    
     it 'exists' do
       expect(@board).to be_an_instance_of(Board)
     end
@@ -15,10 +14,16 @@ RSpec.describe Board do
     it 'has cells' do
       expect(@board.cells.count).to eq(9)
     end
-    
-    xit 'sets up board' do 
-      expect(@board.render).to be('  |   |   /n-----------/n  |   |   /n-----------/n  |   |   ')
+  end
+
+  describe 'valid coordinate' do
+    it 'can validate the coordinate' do
+      expect(@board.valid_coordinate?('t1')).to eq(true)
     end
 
+    it 'can not take an non-empty space' do
+      @board.cells['t1'].render(1)
+      expect(@board.valid_coordinate?('t1')).to eq(false)
+    end
   end
 end
