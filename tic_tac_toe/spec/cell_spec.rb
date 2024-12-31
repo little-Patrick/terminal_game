@@ -3,7 +3,7 @@ require './tic_tac_toe/spec/spec_helper.rb'
 
 RSpec.describe Cell do
   before(:each) do
-    @cell = Cell.new
+    @cell = Cell.new('t1')
   end
 
   describe 'initialize' do

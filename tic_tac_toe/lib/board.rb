@@ -23,10 +23,15 @@ class Board
   end
 
   def place(player, coordinate)
-    
+   if valid_coordinate?(coordinate) == true
+    @cells[coordinate].render(player)
+   else
+    false
+   end
   end
 
   def render
-    
+    render = @cells.values.map {|x| x.render}
+    " #{render[0]} | #{render[1]} | #{render[3]} \n-----------\n #{render[4]} | #{render[5]} | #{render[6]} \n-----------\n #{render[6]} | #{render[7]} | #{render[8]} "
   end
 end
