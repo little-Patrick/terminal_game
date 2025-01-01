@@ -31,9 +31,9 @@ RSpec.describe Board do
     it 'can render new moves' do
       expect(@board.render).to eq("   |   |   \n-----------\n   |   |   \n-----------\n   |   |   ")
 
-      @board.place(@player_x, 't1')
+      @board.place(1, 't1')
 
-      expect(@board.render).to eq(" x |   |   \n-----------\n   |   |   \n-----------\n   |   |   ")
+      expect(@board.render).to eq(" X |   |   \n-----------\n   |   |   \n-----------\n   |   |   ")
     end
   end
 end

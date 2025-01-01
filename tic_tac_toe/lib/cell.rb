@@ -2,14 +2,12 @@
 
 class Cell 
   attr_reader :empty,
-              :player_x,
-              :player_o,
+              :player,
               :coordinate
 
   def initialize(coordinate)
     @coordinate = coordinate
-    @player_x = 'X'
-    @player_o = 'O'
+    @player = ' '
     @empty = true
   end
 
@@ -17,15 +15,15 @@ class Cell
     @empty
   end
 
-  def render(player = ' ')
-    if player == 1 
+  def render(x_or_o = ' ')
+    if x_or_o == 1 
       @empty = false
-      @player_x
-    elsif player == 2
+      @player = 'X'
+    elsif x_or_o == 2
       @empty = false
-      @player_o
+      @player = 'O'
     else
-      player
+     @player
     end
   end
 end

@@ -19,11 +19,11 @@ class Board
   end
 
   def valid_coordinate?(coordinate)
-    @cells.include?(coordinate) && @cells[coordinate].empty? == true ? true : false
+    @cells.key?(coordinate) && @cells[coordinate].empty?
   end
 
   def place(player, coordinate)
-   if valid_coordinate?(coordinate) == true
+   if valid_coordinate?(coordinate)
     @cells[coordinate].render(player)
    else
     false
@@ -31,7 +31,8 @@ class Board
   end
 
   def render
-    render = @cells.values.map {|x| x.render}
+    render = @cells.values.map(&:player)
     " #{render[0]} | #{render[1]} | #{render[3]} \n-----------\n #{render[4]} | #{render[5]} | #{render[6]} \n-----------\n #{render[6]} | #{render[7]} | #{render[8]} "
   end
+  
 end
