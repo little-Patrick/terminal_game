@@ -17,8 +17,14 @@ RSpec.describe Game do
   end
 
   describe 'methods' do
-    it 'has current player turn' do
+    it 'has a winner' do
+      expect(@game.winner?).to eq(false)
+      @game.board.place(2,'t1')
+      @game.board.place(2,'t2')
+      @game.board.place(2,'t3')
 
+      expect(@game.winner?).to eq(true)
+      expect(@game.winner).to eq(2)
     end
   end
 

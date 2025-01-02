@@ -60,6 +60,11 @@ class Board
       false
     end
   end
+
+  def full?
+    @cells.values.all?{|cell| !cell.empty? }
+  end
+
 end
 
 

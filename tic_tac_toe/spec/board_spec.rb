@@ -39,10 +39,27 @@ RSpec.describe Board do
 end
 
 RSpec.describe Board do
-  describe 'turn' do
-    it 'has computer turn' do
+  describe 'full' do
+    it 'can read when not full' do
       @board = Board.new
       expect(@board.turn(2)).to eq(@board.render)
+      @board.place(2, 't1')
+      expect(@board.full?).to eq(false)
+    end
+
+    it 'can be full' do
+      @board = Board.new
+      @board.place(1,'t1')
+      @board.place(2,'t2')
+      @board.place(1,'m1')
+      @board.place(2,'m2')
+      @board.place(1,'m3')
+      @board.place(2,'b1')
+      @board.place(1,'t3')
+      @board.place(2,'b2')
+      @board.place(1,'b3')
+
+      expect(@board.full?).to eq(true)
     end
   end
 end
