@@ -37,3 +37,12 @@ RSpec.describe Board do
     end
   end
 end
+
+RSpec.describe Board do
+  describe 'turn' do
+    it 'has computer turn' do
+      @board = Board.new
+      expect(@board.turn(2)).to eq(@board.render)
+    end
+  end
+end
