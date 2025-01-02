@@ -8,9 +8,9 @@ class Game
 
   def initialize()
     @board = Board.new
-    @first = ()
-    @second = ()
-    @winner = ()
+    @first = nil
+    @second = nil
+    @winner = nil
   end
 
   def start_game
@@ -22,7 +22,7 @@ class Game
       when 'p'
         play_game
       when 'q'
-        put 'Wimp!'
+        puts 'Wimp!'
         break
       else 
         puts "Invalid input.\nPlease select 'p' to play or 'q' to quit"
@@ -31,36 +31,24 @@ class Game
   end
 
   def play_game 
-    random = rand(2)
-    if random == 1
-      @first = 1
-      @second = 2
-    else 
-      @first = 2
-      @second = 1
-    end
+    setup
     until end_game?
-      @board.render
+      puts @board.render
       @board.turn(@first)
+      break if end_game?
+      puts @board.render
       @board.turn(@second) unless end_game?
     end
+    puts @board.render
     game_conclusion
   end
 
-  def end_game?
-    if @board.full? && !winner?
-      puts 'Cats Game'
-      true
-    elsif winner? == 1
-      puts 'You Win!!!!!!'
-      true
-    elsif winner == 2
-      puts 'You Lose :('
-      true
-    else
+    def end_game?
+      return true if @board.full? || winner?
+    
       false
     end
-  end
+
 
   def winner?
     winning_combo = [
@@ -68,18 +56,37 @@ class Game
       %w[t1 m1 b1], %w[t2 m2 b2], %w[t3 m3 b3],
       %w[t1 m2 b3], %w[t3 m2 b1] 
     ]
-    winner_1 = winning_combo.map {|x| x.all?{|y| @board.cells[y].player.include?('X')}}.include?(true)
-    winner_2 =winning_combo.map {|x| x.all?{|y| @board.cells[y].player.include?('O')}}.include?(true)
-    if winner_1 == true
-      @winner = 1
-      return true
-    elsif winner_2 == true
-      @winner = 2
-      return true
-    else
-      return false
+    winning_combo.each do |combo|
+      if combo.all? { |cell| @board.cells[cell].player == 'X' }
+        @winner = 1
+        return true
+      elsif combo.all? { |cell| @board.cells[cell].player == 'O' }
+        @winner = 2
+        return true
+      end
     end
+    false
+  end
 
+  def setup
+    first_player = rand(2)
+    if first_player == 1
+      @first = 1
+      @second = 2
+    else
+      @first = 2
+      @second = 1
+    end
+  end
+
+  def game_conclusion
+    if @winner == 1
+      puts "You Win!!!"
+    elsif @winner == 2
+      puts "You Lose :("
+    else
+      puts "It's a draw!"
+    end
   end
 end
 

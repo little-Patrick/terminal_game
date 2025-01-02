@@ -12,7 +12,7 @@ RSpec.describe Game do
     end
 
     it 'has a board' do
-      expect(@game.board.render).to eq("   |   |   \n-----------\n   |   |   \n-----------\n   |   |   ")
+      expect(@game.board.render).to eq(" TicTacToe \n   |   |   \n-----------\n   |   |   \n-----------\n   |   |   ")
     end
   end
 
@@ -25,6 +25,20 @@ RSpec.describe Game do
 
       expect(@game.winner?).to eq(true)
       expect(@game.winner).to eq(2)
+    end
+
+    it 'is thanos' do
+      expect(@game.end_game?).to eq(false)
+
+      @game.board.place(2,'t1')
+      @game.board.place(2,'t2')
+      @game.board.place(2,'t3')
+
+      expect(@game.end_game?).to eq(true)
+    end
+
+    it 'choses random to start' do
+      expect(@game.setup).to eq(1).or eq(2)
     end
   end
 
