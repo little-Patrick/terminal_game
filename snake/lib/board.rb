@@ -4,7 +4,8 @@ class Board
   attr_reader :cells,
               :snake,
               :row,
-              :column
+              :column,
+              :full
 
   def initialize(row = 15, column = 30)
     @cells = {}
@@ -18,12 +19,30 @@ class Board
     @snake = Snake.new
     @row = row
     @column = column
+    @full = false
   end
 
   def render
     render = @cells.values.map(&:appearance)
-    binding.pry
-    board = render.each_slice(column) {|x| puts "#{x} \n"}
+    render.each_slice(column) { |slice| puts "#{slice.join(' ')}\n" }
+  end
 
+  def full?
+    @full = true if @cells.values.all?(&:full)
+    
+    return @full
+  end
+
+  def food_drop
+    full?
+    return false if @full == true || @cells.values.any?{|x| x.appearance.include?("+")}
+    loop do
+      coordinate = @cells.values.map(&:coordinate).sample
+      if @cells[coordinate].empty?
+        @cells[coordinate].render('food')
+        break
+      end
+    end
   end
 end
+
