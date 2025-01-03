@@ -32,7 +32,7 @@ class Board
   end
 
   def render
-    render = @cells.values.map(&:player)
+  
     " TicTacToe \n #{render[0]} | #{render[1]} | #{render[2]} \n-----------\n #{render[3]} | #{render[4]} | #{render[5]} \n-----------\n #{render[6]} | #{render[7]} | #{render[8]} "
   end
 

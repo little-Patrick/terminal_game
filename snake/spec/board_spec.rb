@@ -15,4 +15,10 @@ RSpec.describe Board do
       expect(@board.cells.count).to eq(9)
     end
   end
+
+  describe 'render' do
+    it 'starts with head' do
+      expect(@board.render).to eq()
+    end
+  end
 end
