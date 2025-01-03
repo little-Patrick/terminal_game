@@ -3,9 +3,9 @@ require './snake/spec/spec_helper.rb'
 
 RSpec.describe Cell do
   before(:each) do
-    @cell_1 = Cell.new
-    @cell_2 = Cell.new
-    @cell_3 = Cell.new
+    @cell_1 = Cell.new('a1')
+    @cell_2 = Cell.new('a2')
+    @cell_3 = Cell.new('a3')
 
   end
   

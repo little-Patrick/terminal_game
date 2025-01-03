@@ -16,7 +16,7 @@ class Cell
   end
 
   def render(type)
-    if type == 'snake'
+    if type == 'body'
       @appearance = '*'
     elsif type == 'food'
       @appearance = '+'
