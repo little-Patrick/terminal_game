@@ -7,7 +7,7 @@ class Board
               :column,
               :full
 
-  def initialize(row = 15, column = 30)
+  def initialize(row, column)
     @cells = {}
       ('a'...(('a'.ord) + row).chr).each do |row|
         (1..column).each do |col|

@@ -8,9 +8,12 @@ class Game
   end
 
   def board_size
-    puts 'what board size would you like? (row, column)'
-    size = gets.chomp.to_i
-    @board = Board.new(size[0], size[1])
-    binding.pry
+    puts 'How many rows would you like?'
+    row = gets.chomp.to_i
+    puts 'how many column would you like?'
+    column = gets.chomp.to_i
+    @board = Board.new(row, column)
   end
+
+  
 end
