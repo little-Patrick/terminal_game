@@ -2,9 +2,11 @@
 
 class Cell
   attr_reader :appearance,
-              :empty
+              :empty,
+              :coordinate
 
-  def initialize()
+  def initialize(coordinate)
+    @coordinate = coordinate
     @appearance = ' '
     @empty = true
   end
