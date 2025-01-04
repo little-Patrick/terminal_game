@@ -3,14 +3,14 @@
 class Game 
   attr_reader :board,
               :direction,
-              :head_coord
-
-
+              :head_coord,
+              :game_over
 
   def initialize()
-    @board = nil
+    @board = ()
     @direction = 'RIGHT'
     @head_coord = 'a1'
+    @game_over = false
   end
 
   def start
@@ -39,6 +39,10 @@ class Game
     @board = Board.new(row, column)
   end
 
+  def score
+    @board.snake.food_count
+  end
+
   def run
     system("clear")
     draw
@@ -64,20 +68,52 @@ class Game
   end
 
   def draw
+    binding.pry
     system("clear")
-    puts @board.render
+    @board.cells[@head_coord].render('head')
+    @board.render
   end
 
   def start_game
+    binding.pry
     case @direction
     when 'UP'
       @head_coord = (@head_coord.split('')[0].ord - 1).chr
+      @body << @head_coordinate
+      @body.pop
     when 'DOWN'
       @head_coord = (@head_coord.split('')[0].ord + 1).chr
+      @body << @head_coordinate
+      @body.pop
     when 'LEFT'
       @head_coord = @head_coordinate.split('')[1] - 1
+      @body << @head_coordinate
+      @body.pop
     when 'RIGHT' 
       @head_coord = @head_coordinate.split('')[1] + 1
+      @body << @head_coordinate
+      @body.pop
+    end
+
+    if @head_coord == @food_coord
+      @board.food_drop
+      @board.snake.eat
+      return @head_coord
+    elsif @body.include?(@head_coord)
+      @game_over = true
+    else 
+       return @head_coord
+    end
+  end
+
+  def game_over?
+    if game_over == true
+      true
+    elsif @board.full?
+      true
+    else
+      false
     end
   end
 end
+

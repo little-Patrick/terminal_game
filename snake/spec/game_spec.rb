@@ -13,10 +13,14 @@ RSpec.describe Game do
     end
 
     it 'can create a board size' do
-      @game = Game.new
       @board = Board.new(3, 3)
+      @game = Game.new
+
+      @board = Board.new(3, 3)
+      @game.draw
       @game.board_size
       @game.start_game
+      @game.draw
     end
   end
 end

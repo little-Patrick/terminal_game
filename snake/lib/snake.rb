@@ -9,6 +9,7 @@ class Snake
     @head = 'head'
     @body = 'body'
     @food_count = 0
+    @head_coord = 'a1'
   end
 
   def eat

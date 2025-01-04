@@ -1,0 +1,24 @@
+current directory: /home/texas_red/Projects/terminal_game/vendor/bundle/ruby/3.1.0/gems/rbs-3.8.1/ext/rbs_extension
+/home/texas_red/.rbenv/versions/3.1.2/bin/ruby -I /home/texas_red/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20250104-10348-p9negi.rb extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/texas_red/Projects/terminal_game/vendor/bundle/ruby/3.1.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= clean
+
+current directory: /home/texas_red/Projects/terminal_game/vendor/bundle/ruby/3.1.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\=
+compiling ./../../src/constants.c
+compiling ./../../src/ruby_objs.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling unescape.c
+linking shared-object rbs_extension.so
+
+current directory: /home/texas_red/Projects/terminal_game/vendor/bundle/ruby/3.1.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 rbs_extension.so ./.gem.20250104-10348-lumd3j
