@@ -4,13 +4,17 @@ class Cell
   attr_reader :appearance,
               :empty,
               :coordinate,
-              :full
+              :full,
+              :row,
+              :column
 
   def initialize(coordinate)
     @coordinate = coordinate
     @appearance = ' '
     @empty = true
     @full = false
+    @row = coordinate.split('')[0]
+    @column = coordinate.split('')[1]
   end
 
   def empty?

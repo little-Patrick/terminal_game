@@ -24,12 +24,11 @@ class Board
 
   def render
     render = @cells.values.map(&:appearance)
-    render.each_slice(column) { |slice| puts "#{slice.join(' ')}\n" }
+    return render.each_slice(column) { |slice| puts "#{slice.join(' ')}\n" }
   end
 
   def full?
     @full = true if @cells.values.all?(&:full)
-    
     return @full
   end
 

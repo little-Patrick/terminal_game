@@ -39,4 +39,18 @@ RSpec.describe Cell do
       expect(@cell_2.full?).to eq(true)
     end
   end
+
+  describe 'row and column' do 
+    it 'has row' do
+      @cell_1 = Cell.new('a1')
+
+      expect(@cell_1.row).to eq('a')
+    end
+
+    it 'has column' do
+      @cell_1 = Cell.new('a1')
+
+      expect(@cell_1.column).to eq('1')
+    end
+  end
 end
