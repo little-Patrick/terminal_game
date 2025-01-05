@@ -27,13 +27,21 @@ class Cell
 
   def render(part = ' ')
     if part == 'head'
+      @empty = false
+      @full = true
       @appearance = '@'
     elsif part == 'body'
+      @empty = false
+      @full = true
       @appearance = '*'
     elsif part == 'food'
+      @empty = false
+      @full = false
       @appearance = '+'
     else 
-      @appearance
+      @appearance = part
+      @empty = true
+      @full = false
     end
   end
 

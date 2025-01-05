@@ -33,15 +33,26 @@ RSpec.describe Cell do
 
   describe 'render' do
     it 'renders head' do
-
+      @cell_1.render('head')
+      expect(@cell_1.appearance).to eq('@')
+      expect(@cell_1.full?).to eq(true)
     end
 
     it 'renders body' do
-    
+      @cell_2.render('body')
+      expect(@cell_2.appearance).to eq('*')
+      expect(@cell_2.empty?).to eq(false)
     end
     
     it 'renders food' do
-      
+      @cell_3.render('food')
+      expect(@cell_3.appearance).to eq('+')
+    end
+    
+    it 'renders a space' do
+      expect(@cell_4.appearance).to eq(' ')
+      @cell_4.render
+      expect(@cell_4.appearance).to eq(' ')
     end
   end
 end
