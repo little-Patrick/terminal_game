@@ -1,19 +1,17 @@
 
 
 class Snake
-  attr_reader :head,
-              :body,
+  attr_reader :head_coord,
+              :body_coords,
               :food_count
 
   def initialize()
-    @head = 'head'
-    @body = 'body'
+    @head_coord = '11'
+    @body_coords = []
     @food_count = 0
-    @head_coord = 'a1'
   end
+  
 
-  def eat
-    @food_count += 1
-  end
+
 
 end

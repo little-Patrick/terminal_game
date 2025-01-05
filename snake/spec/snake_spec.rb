@@ -7,25 +7,21 @@ RSpec.describe Snake do
   end
 
   describe 'initialize' do
-    it 'exists' do
+    it 'exits' do
       expect(@snake).to be_an_instance_of(Snake)
     end
 
-    it 'has body parts' do
-      expect(@snake.head).to eq('head')
-      expect(@snake.body).to eq('body')
+    it 'has starting head coordinate' do
+      expect(@snake.head_coord).to eq('11')
     end
-  end
 
-  describe 'eating' do
-    it 'starts with 0' do
+    it 'can store body coords in an array' do
+      expect(@snake.body_coords).to eq([])
+    end
+
+    it 'starts with no food' do
       expect(@snake.food_count).to eq(0)
     end
-
-    it 'can eat' do
-      @snake.eat
-      @snake.eat
-      expect(@snake.food_count).to eq(2)
-    end
   end
+
 end
