@@ -14,7 +14,7 @@ class Cell
     @column = coordinate.split('')[1]
     @empty = true
     @full = false
-    @appearance = ' '
+    @appearance = '.'
   end
 
   def empty?
@@ -25,7 +25,7 @@ class Cell
     @full
   end
 
-  def render(part = ' ')
+  def render(part = '.')
     if part == 'head'
       @empty = false
       @full = true

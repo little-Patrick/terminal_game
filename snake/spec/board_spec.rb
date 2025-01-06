@@ -13,9 +13,25 @@ RSpec.describe Board do
     it 'has cells' do
       expect(@board.cells.count).to eq(16)
     end
+  end
 
-    it 'has valid coordinate IV' do
-      expect(@board.valid_coordinate).to eq(false)
+  describe "valid_coordinate?" do
+    it 'has valid coord when empty' do
+      expect(@board.valid_coordinate?('11')).to eq(true)
+    end
+
+    it 'when not empty invalid coord' do
+      @board.cells["11"].render('head')
+      expect(@board.valid_coordinate?('11')).to eq(false)
+    end
+  end
+
+  describe "snake" do
+    it 'can add snake ' do
+      @board.snake
+      @board.food_drop
+      @board.render
+      binding.pry
     end
   end
 end
