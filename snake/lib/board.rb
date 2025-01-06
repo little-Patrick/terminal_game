@@ -31,7 +31,7 @@ class Board
     end
   end
 
-  def snake
+  def snake_render
     food_drop
     @cells[@snake.head_coord].render('head')
     @snake.body_coords.each {|x| @cells[x].render('body')}
@@ -51,7 +51,11 @@ class Board
   end
 
   def render
-    snake
+    snake_render
     @cells.values.map(&:appearance).each_slice(@column){|x| puts "#{x.join(' ')}\n"}
+  end
+
+  def game_over?
+    @cells.values.all?(&:full) ? true : false
   end
 end

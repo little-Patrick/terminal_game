@@ -31,7 +31,8 @@ RSpec.describe Board do
       @board.snake
       @board.food_drop
       @board.render
-      binding.pry
+      @board.game_over?
+      
     end
   end
 end

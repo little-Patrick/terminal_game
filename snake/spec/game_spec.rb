@@ -12,5 +12,8 @@ RSpec.describe Game do
       expect(@game).to be_an_instance_of(Game)
     end
 
+    it 'something' do
+      @game.move_snake
+    end
   end
 end
