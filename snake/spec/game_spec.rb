@@ -13,7 +13,9 @@ RSpec.describe Game do
     end
 
     it 'something' do
+      @game.snake_collision
       @game.move_snake
+
     end
   end
 end

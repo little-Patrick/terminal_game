@@ -12,7 +12,7 @@ class Snake
   end
 
   def new_head(coordinate)
-    bod
+    body
     @head_coord = coordinate
   end
 

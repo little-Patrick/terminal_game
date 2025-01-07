@@ -10,9 +10,9 @@ class Board
 
   def initialize(row, column)
     @cells = {}
-      (1..row).each do |row|
-        (1..column).each do |column|
-          coordinate = "#{row}#{column}"
+      (1..row).each do |r|
+        (1..column).each do |c|
+          coordinate = "#{r}#{c}"
           @cells[coordinate] = Cell.new(coordinate)
         end
       end
