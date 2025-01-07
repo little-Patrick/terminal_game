@@ -1,0 +1,5 @@
+require 'pry'
+require 'rspec'
+require './tic_tac_toe/lib/board.rb'
+require './tic_tac_toe/lib/cell.rb'
+require './tic_tac_toe/lib/game.rb'
