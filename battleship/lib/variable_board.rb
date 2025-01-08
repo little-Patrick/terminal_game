@@ -67,3 +67,5 @@ class VariableBoard
     render_cells.each_slice(column){|x| print "#{x.join(' ')}\n"}
   end
 end
+
+# https://ruby-doc.org/stdlib-2.4.9/libdoc/io/console/rdoc/IO.html#method-c-console

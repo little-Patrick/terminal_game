@@ -5,7 +5,7 @@ class Game
 
   def initialize()
     @board = nil
-    @direction = 'Right'
+    @direction = 'RIGHT'
   end
 
   def start
@@ -31,9 +31,10 @@ class Game
     draw
     Thread.new {capture_input}
     until game_over?
+      system('clear')
       move_snake
       draw
-      sleep 0.2
+      sleep 0.8
     end
   end
 
@@ -47,22 +48,22 @@ class Game
 
   def move_snake
     case @direction
-    when 'Up' 
+    when 'UP' 
       row, column = @board.snake.head_coord.chars
       new_row = (row.to_i - 1).to_s 
       new_coord = "#{new_row}#{column}"
       @board.snake.new_head(new_coord)  
-    when 'Down'
+    when 'DOWN'
       row, column = @board.snake.head_coord.chars
       new_row = (row.to_i + 1).to_s 
       new_coord = "#{new_row}#{column}"
       @board.snake.new_head(new_coord)
-    when 'Left'
+    when 'LEFT'
       row, column = @board.snake.head_coord.chars
       new_column = (column.to_i - 1).to_s 
       new_coord = "#{row}#{new_column}"
       @board.snake.new_head(new_coord)  
-    when 'Right'
+    when 'RIGHT'
       row, column = @board.snake.head_coord.chars
       new_column = (column.to_i + 1).to_s 
       new_coord = "#{row}#{new_column}"
@@ -73,10 +74,10 @@ class Game
   def capture_input
     loop do
       case STDIN.getch
-      when 'w' then @direction = 'UP' unless @direction == 'DOWN'
-      when 's' then @direction = 'DOWN' unless @direction == 'UP'
-      when 'a' then @direction = 'LEFT' unless @direction == 'RIGHT'
-      when 'd' then @direction = 'RIGHT' unless @direction == 'LEFT'
+      when "w" then @direction = 'UP' unless @direction == 'DOWN'
+      when "s" then @direction = 'DOWN' unless @direction == 'UP'
+      when "a" then @direction = 'LEFT' unless @direction == 'RIGHT'
+      when "d" then @direction = 'RIGHT' unless @direction == 'LEFT'
       end
     end
   end
@@ -98,3 +99,7 @@ class Game
   end
 
 end
+
+# https://ruby-doc.org/stdlib-2.4.9/libdoc/io/console/rdoc/index.html
+
+# https://docs.ruby-lang.org/en/2.1.0/IO.html#method-i-getch

@@ -16,16 +16,16 @@ checking for ttyname_r()... yes
 creating Makefile
 
 current directory: /home/texas_red/Projects/Ruby/terminal_game/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.0/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250107-27947-av11gs sitelibdir\=./.gem.20250107-27947-av11gs clean
+make DESTDIR\= sitearchdir\=./.gem.20250107-49757-4n5e0z sitelibdir\=./.gem.20250107-49757-4n5e0z clean
 
 current directory: /home/texas_red/Projects/Ruby/terminal_game/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.0/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250107-27947-av11gs sitelibdir\=./.gem.20250107-27947-av11gs
+make DESTDIR\= sitearchdir\=./.gem.20250107-49757-4n5e0z sitelibdir\=./.gem.20250107-49757-4n5e0z
 compiling console.c
 linking shared-object io/console.so
 
 current directory: /home/texas_red/Projects/Ruby/terminal_game/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.0/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250107-27947-av11gs sitelibdir\=./.gem.20250107-27947-av11gs install
-/usr/bin/install -c -m 0755 console.so ./.gem.20250107-27947-av11gs/io
+make DESTDIR\= sitearchdir\=./.gem.20250107-49757-4n5e0z sitelibdir\=./.gem.20250107-49757-4n5e0z install
+/usr/bin/install -c -m 0755 console.so ./.gem.20250107-49757-4n5e0z/io
 
 current directory: /home/texas_red/Projects/Ruby/terminal_game/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.0/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250107-27947-av11gs sitelibdir\=./.gem.20250107-27947-av11gs clean
+make DESTDIR\= sitearchdir\=./.gem.20250107-49757-4n5e0z sitelibdir\=./.gem.20250107-49757-4n5e0z clean
