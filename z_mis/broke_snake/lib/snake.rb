@@ -12,7 +12,11 @@ class Snake
   end
 
   def new_head(coordinate)
-    body
+    if coordinate == @food_coord
+      eat
+    else
+      body
+    end
     @head_coord = coordinate
   end
 

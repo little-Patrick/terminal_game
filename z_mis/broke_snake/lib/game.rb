@@ -26,17 +26,18 @@ class Game
     end
   end
 
-  def run
+def run
+  system('clear')
+  draw
+  input_thread = Thread.new { capture_input }
+  until game_over?
     system('clear')
+    move_snake
     draw
-    Thread.new {capture_input}
-    until game_over?
-      system('clear')
-      move_snake
-      draw
-      sleep 0.8
-    end
+    sleep 0.5
   end
+  input_thread.kill
+end
 
   def setup
     puts 'How many rows?' 
@@ -47,27 +48,27 @@ class Game
   end
 
   def move_snake
+    row, column = @board.snake.head_coord.chars
     case @direction
-    when 'UP' 
-      row, column = @board.snake.head_coord.chars
-      new_row = (row.to_i - 1).to_s 
+    when 'UP'
+      new_row = (row.to_i - 1)
       new_coord = "#{new_row}#{column}"
-      @board.snake.new_head(new_coord)  
     when 'DOWN'
-      row, column = @board.snake.head_coord.chars
-      new_row = (row.to_i + 1).to_s 
+      new_row = (row.to_i + 1)
       new_coord = "#{new_row}#{column}"
-      @board.snake.new_head(new_coord)
     when 'LEFT'
-      row, column = @board.snake.head_coord.chars
-      new_column = (column.to_i - 1).to_s 
+      new_column = (column.to_i - 1)
       new_coord = "#{row}#{new_column}"
-      @board.snake.new_head(new_coord)  
     when 'RIGHT'
-      row, column = @board.snake.head_coord.chars
-      new_column = (column.to_i + 1).to_s 
+      new_column = (column.to_i + 1)
       new_coord = "#{row}#{new_column}"
-      @board.snake.new_head(new_coord)  
+    end
+  
+    if @board.valid_coordinate?(new_coord)
+      @board.snake.new_head(new_coord)
+    else
+      puts "Game Over: Snake hit the wall!"
+      exit
     end
   end
 
@@ -78,16 +79,16 @@ class Game
       when "s" then @direction = 'DOWN' unless @direction == 'UP'
       when "a" then @direction = 'LEFT' unless @direction == 'RIGHT'
       when "d" then @direction = 'RIGHT' unless @direction == 'LEFT'
+      when "o" then break
       end
     end
   end
 
   def game_over?
-    if @board.game_over?
+    if @board.game_over? || @board.snake.body_coords.include?(@board.snake.head_coord)
+      puts "Game Over!"
       true
-    elsif @board.snake.body_coords.include?(@board.snake.head_coord)
-      true
-    else 
+    else
       false
     end
   end

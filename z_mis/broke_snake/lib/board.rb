@@ -34,7 +34,7 @@ class Board
   def snake_render
     food_drop
     @cells[@snake.head_coord].render('head')
-    @snake.body_coords.each {|x| @cells[x].render('body')}
+    @snake.body_coords.each {|x| puts @cells[x].render('body')}
   end
 
   def food_drop
@@ -52,7 +52,8 @@ class Board
 
   def render
     snake_render
-    @cells.values.map(&:appearance).each_slice(@column){|x| puts "#{x.join(' ')}\n"}
+    render = @cells.values.map(&:appearance).each_slice(@column){|x| "#{x.join(' ')}\n"}
+    render
   end
 
   def game_over?
